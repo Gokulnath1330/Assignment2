@@ -8,7 +8,9 @@ Created on Tue Dec  6 15:29:59 2022
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
+
 def line_plot(filename):
+    # use skiprows if you want to skip headers
     df=pd.read_csv(filename,skiprows=4)
     print(df)
     country1 = df.iloc[43,55:61]
@@ -21,14 +23,19 @@ def line_plot(filename):
     plt.plot(country2,label='Germany')
     plt.plot(country3,label='Greenland')
     plt.plot(country4,label='India')
+    # use label to plot the labels
     plt.xlabel('Year')
     plt.ylabel('Co2(kt)') 
     plt.title('Co2 Emission')
     plt.legend(loc='center left',bbox_to_anchor=(1.40, 0.7))
     plt.show()
+    
+    
 def line_plot2(filename):
+    # use skiprows if you want to skip headers
     df=pd.read_csv(filename,skiprows=4)
     print(df)
+    # use iloc to locate the country location
     country1 = df.iloc[43,54:59]
     country2 = df.iloc[64,54:59]
     country3 = df.iloc[6,54:59]
@@ -46,17 +53,32 @@ def line_plot2(filename):
     plt.show()
 line_plot(r"E:\Co2 emission\Co2 emission1.csv")
 line_plot2(r"E:\Forest area\Forest area.csv")
+
+
+def transpose(filename):
+    # use skiprows if you want to skip headers
+    csv=pd.read_csv(filename,skiprows=4)
+    df_csv = pd.DataFrame(data=csv)
+    transposed_csv = df_csv.T
+    print(transposed_csv)
+
+transpose(r"E:\Forest area\Forest area.csv")
+line_plot(r"E:\Co2 emission\Co2 emission1.csv")
+
+
+  
 def Bar_plot(filename):
+    # use skiprows if you want to skip headers
     df2=pd.read_csv(filename,skiprows=4)
     df2=df2.drop(["Country Code","Indicator Name","Indicator Code"],axis=1)
     print(df2)
-    mnc1=df2.fillna(0)
-    print(mnc1)
-    mnc2=(mnc1.apply(lambda row: row[mnc1["Country Name"].
-                                     isin(['Switzerland','Denmark','Greenland','India'])]))
-    print(mnc2)
+    bar1=df2.fillna(0)
+    print(bar1)
+    bar2=(bar1.apply(lambda row: row[bar1["Country Name"].
+                                     isin(['Switzerland','Denmark','Argentina','India'])]))
+    print(bar2)
     plt.figure()
-    mnc2.plot(x="Country Name",y=["2010","2011","2012","2013","2015"],kind="bar")
+    bar2.plot(x="Country Name",y=["2010","2011","2012","2013","2015"],kind="bar")
     plt.xticks(rotation = 0)
     plt.ylabel('Land area')
     plt.title("Forest")
