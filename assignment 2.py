@@ -63,7 +63,8 @@ def transpose(filename):
     print(transposed_csv)
 
 transpose(r"E:\Forest area\Forest area.csv")
-line_plot(r"E:\Co2 emission\Co2 emission1.csv")
+transpose(r"E:\Co2 emission\Co2 emission1.csv")
+transpose(r"E:\Population growth\Population growth.csv") 
 
 
   
