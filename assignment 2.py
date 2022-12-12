@@ -27,6 +27,9 @@ def Bar_plot(filename):
     bar2=(bar1.apply(lambda row: row[bar1["Country Name"].
                         isin(['Switzerland','Denmark','Argentina','India'])]))
     print(bar2)
+    # to select two variables values use correlation
+    bar3= bar2.corr()
+    print("correlation:", bar3)
     plt.figure()
     bar2.plot(x="Country Name",
               y=["2010","2011","2012","2013","2015"],kind="bar")
@@ -60,6 +63,9 @@ def Bar_plot2(filename): # to define a function using def
     bar2=(bar1.apply(lambda row: row[bar1["Country Name"].
                         isin(['Switzerland','Denmark','Argentina','India'])]))
     print(bar2)
+    # to select two variables value use correlation
+    bar3= bar2.corr()
+    print("correlation:", bar3)
     plt.figure()
     
     bar2.plot(x="Country Name",
