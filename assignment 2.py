@@ -8,8 +8,7 @@ Created on Tue Dec  6 15:29:59 2022
 import pandas as pd 
 # Implementation of Matplotlib function
 import matplotlib.pyplot as plt
-# implementation of numpy function
-import numpy as np 
+
 
 # To define a function use def 
 def Bar_plot(filename):
